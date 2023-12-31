@@ -55,14 +55,16 @@ const styles = StyleSheet.create({
     resizeMode: 'cover',
     
     width: '70%',
-    backgroundColor: '#fff'
+    backgroundColor: '#ecd18e'
   },
 
    buttonMainScreenText: {
        fontSize: 20,
        fontWeight: '500',
        textAlign: 'center',
-       
+       color: '#fff',
+       paddingTop: 7,
+       paddingBottom: 7,
    }
 
 
