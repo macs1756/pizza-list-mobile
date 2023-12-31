@@ -7,16 +7,18 @@ export default function App() {
   //const navigation = useNavigation();
 
   const handlePress = () => {
-   
-    
+
+
     //navigation.navigate('AnotherScreen');
-   
+
   };
 
 
   return (
     <View style={styles.container}>
-      
+
+      <Text style={styles.greetingText}>Welcome to {'\n'} pizza list!</Text>
+
       <Image style={styles.imagePrimary} source={require('./assets/initial-photo.jpg')} />
 
       <TouchableOpacity style={styles.buttonMainScreen} onPress={handlePress}>
@@ -24,7 +26,7 @@ export default function App() {
       </TouchableOpacity>
 
       <StatusBar style="auto" />
-      
+
     </View>
   );
 }
@@ -53,19 +55,30 @@ const styles = StyleSheet.create({
     left: '15%',
     zIndex: 2,
     resizeMode: 'cover',
-    
+
     width: '70%',
-    backgroundColor: '#ecd18e'
+    backgroundColor: '#d4bc7f',
+    borderRadius: 999
   },
 
-   buttonMainScreenText: {
-       fontSize: 20,
-       fontWeight: '500',
-       textAlign: 'center',
-       color: '#fff',
-       paddingTop: 7,
-       paddingBottom: 7,
-   }
+  buttonMainScreenText: {
+    fontSize: 20,
+    fontWeight: '700',
+    textAlign: 'center',
+    color: '#fff',
+    paddingTop: 7,
+    paddingBottom: 8,
+
+  },
+
+  greetingText: {
+    fontWeight: '600',
+    position: 'absolute',
+    fontSize: 28,
+    top: '10%',
+    left: '7%',
+    zIndex: 2,
+  }
 
 
 });
