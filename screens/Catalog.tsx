@@ -32,7 +32,7 @@ const Catalog: React.FC<HomeScreenProps> = ({ navigation }) => {
     <>
       {isLoading ? (
         <View style={styles.loadingContainer}>
-          <Text>Loading</Text>
+             <Image style={styles.pizzaImageLoading} source={ require('../assets/catalog/1.jpg') } />
         </View>
       ) : (
         <ScrollView style={styles.container}>
@@ -40,7 +40,7 @@ const Catalog: React.FC<HomeScreenProps> = ({ navigation }) => {
             {dataPiza.map((e, i) => (
               <View key={e?.title + i} style={styles.catalogItem}>
                 <View style={styles.pizzaImageWrapper}>
-                  <Image style={styles.pizzaImage} source={{ uri: e?.image.toString() }} />
+                  <Image style={styles.pizzaImage} source={e?.image} />
                 </View>
                 <Text style={styles.pizzaWeight}>{e?.weight + ' гр.'}</Text>
                 <Text style={styles.pizzaTitle}>{e?.title}</Text>
@@ -139,6 +139,12 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center'
+  },
+
+  pizzaImageLoading: {
+    width: '25%',
+    height: '12.5%',
+    borderRadius: 9999,
   }
 
 });
