@@ -3,28 +3,51 @@ import { StatusBar } from 'expo-status-bar'
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { dataPiza } from '../data/catalog.piza'
 import { ScrollView } from 'react-native-gesture-handler';
+import { StackNavigationProp } from '@react-navigation/stack';
 
 
-const Catalog = () => {
+type RootStackParamList = {
+  Catalog: undefined
+  Home: undefined
+  Single: undefined
+};
+
+type HomeScreenProps = {
+  navigation: StackNavigationProp<RootStackParamList, 'Single'>;
+};
+
+
+const Catalog: React.FC<HomeScreenProps> = ({ navigation }) => {
   return (
     <ScrollView style={styles.container}>
       <View style={styles.pb40}>
-      {
-        dataPiza.map((e, i) => (
-          <View key={e?.title + i} style={styles.catalogItem}>
+        {
+          dataPiza.map((e, i) => (
+            <View key={e?.title + i} style={styles.catalogItem}>
 
-            <View style={styles.pizzaImageWrapper}>
-              <Image style={styles.pizzaImage} source={e?.image} />
+              <View style={styles.pizzaImageWrapper}>
+                <Image style={styles.pizzaImage} source={e?.image.toString()} />
+              </View>
+
+              <Text style={styles.pizzaWeight}>{e?.weight + ' гр.'}</Text>
+              <Text style={styles.pizzaTitle}>{e?.title}</Text>
+
+              <View>
+
+                <TouchableOpacity
+                  onPress={() => navigation.navigate('Single')}
+                >
+                  <Text>Go to catalog</Text>
+                </TouchableOpacity>
+
+              </View>
+
             </View>
-
-            <Text style={styles.pizzaWeight}>{e?.weight + ' гр.'}</Text>
-            <Text style={styles.pizzaTitle}>{e?.title}</Text>
-          </View>
-        ))
-      }
+          ))
+        }
 
 
-      <StatusBar style="dark" />
+        <StatusBar style="dark" />
       </View>
     </ScrollView>
   );
@@ -75,7 +98,7 @@ const styles = StyleSheet.create({
     top: 0,
     left: 0,
     borderRadius: 7,
-  }, 
+  },
   pb40: {
     paddingBottom: 20
   }

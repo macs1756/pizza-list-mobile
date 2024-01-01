@@ -4,13 +4,12 @@ import { View, Text, StyleSheet, Image, TouchableOpacity  } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
 
 type RootStackParamList = {
-  Home: undefined;
-  AnotherScreen: undefined;
-  // Add more screen names as needed
+  Catalog: undefined;
+  Home: undefined
 };
 
 type HomeScreenProps = {
-  navigation: StackNavigationProp<RootStackParamList, 'Home'>;
+  navigation: StackNavigationProp<RootStackParamList, 'Catalog'>;
 };
 
 const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
