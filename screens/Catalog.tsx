@@ -18,41 +18,45 @@ type HomeScreenProps = {
 
 
 const Catalog: React.FC<HomeScreenProps> = ({ navigation }) => {
+
+  const [isLoading, setIsLoading] = React.useState(false)
+
+  React.useEffect(() => {
+    setIsLoading(true)
+    setTimeout(() => {
+      setIsLoading(false)
+    }, 700)
+  }, [navigation])
+
   return (
-    <ScrollView style={styles.container}>
-      <View style={styles.pb40}>
-        {
-          dataPiza.map((e, i) => (
-            <View key={e?.title + i} style={styles.catalogItem}>
-
-              <View style={styles.pizzaImageWrapper}>
-                <Image style={styles.pizzaImage} source={e?.image.toString()} />
+    <>
+      {isLoading ? (
+        <View style={styles.loadingContainer}>
+          <Text>Loading</Text>
+        </View>
+      ) : (
+        <ScrollView style={styles.container}>
+          <View style={styles.pb40}>
+            {dataPiza.map((e, i) => (
+              <View key={e?.title + i} style={styles.catalogItem}>
+                <View style={styles.pizzaImageWrapper}>
+                  <Image style={styles.pizzaImage} source={{ uri: e?.image.toString() }} />
+                </View>
+                <Text style={styles.pizzaWeight}>{e?.weight + ' гр.'}</Text>
+                <Text style={styles.pizzaTitle}>{e?.title}</Text>
+                <View style={styles.gridBuyPizza}>
+                  <Text style={styles.pizzaPrice}>{e?.price + 'грн'}</Text>
+                  <TouchableOpacity onPress={() => navigation.navigate('Single')}>
+                    <Text style={styles.buttonBuy}>Купити</Text>
+                  </TouchableOpacity>
+                </View>
               </View>
-
-              <Text style={styles.pizzaWeight}>{e?.weight + ' гр.'}</Text>
-              <Text style={styles.pizzaTitle}>{e?.title}</Text>
-
-
-              <View style={styles.gridBuyPizza}>
-              
-                <Text style={styles.pizzaPrice}>{e?.price + 'грн'}</Text>
-
-                <TouchableOpacity
-                  onPress={() => navigation.navigate('Single')}
-                >
-                  <Text style={styles.buttonBuy}>Купити</Text>
-                </TouchableOpacity>
-
-              </View>
-
-            </View>
-          ))
-        }
-
-
-        <StatusBar style="dark" />
-      </View>
-    </ScrollView>
+            ))}
+            <StatusBar style="dark" />
+          </View>
+        </ScrollView>
+      )}
+    </>
   );
 };
 
@@ -127,6 +131,14 @@ const styles = StyleSheet.create({
     backgroundColor: '#3aad49',
     color: '#fff',
     fontSize: 16
+  },
+
+  loadingContainer: {
+    width: '100%',
+    height: '100%',
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 
 });

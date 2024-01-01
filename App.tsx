@@ -13,9 +13,9 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Greeting" component={HomeScreen} />
-        <Stack.Screen name="Catalog" component={Catalog} />
-        <Stack.Screen name="Single" component={Single} />
+        <Stack.Screen name="Greeting" component={HomeScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="Catalog" component={Catalog} options={{ title: 'Каталог' }} />
+        <Stack.Screen name="Single" component={Single} options={{ title: 'Підтвердження' }} />
       </Stack.Navigator>
     </NavigationContainer>
   );

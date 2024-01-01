@@ -16,7 +16,7 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
   return (
     <View style={styles.container}>
 
-      <Text style={styles.greetingText}>Welcome to {'\n'} pizza list!</Text>
+      <Text style={styles.greetingText}>Ласкаво просимо в Pizza crab!</Text>
 
       <Image style={styles.imagePrimary} source={require('../assets/initial-photo.jpg')} />
 
@@ -24,7 +24,7 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
         style={styles.buttonMainScreen}
          onPress={() => navigation.navigate('Catalog')}
       >
-        <Text style={styles.buttonMainScreenText}>Go to catalog</Text>
+        <Text style={styles.buttonMainScreenText}>До каталогу</Text>
       </TouchableOpacity>
 
       <StatusBar style="auto" />
@@ -80,6 +80,7 @@ const styles = StyleSheet.create({
     top: '10%',
     left: '7%',
     zIndex: 2,
+    width: '75%'
   }
 
 
