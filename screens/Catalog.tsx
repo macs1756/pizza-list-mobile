@@ -8,13 +8,13 @@ import { ScrollView } from 'react-native-gesture-handler';
 const Catalog = () => {
   return (
     <ScrollView style={styles.container}>
-
+      <View style={styles.pb40}>
       {
         dataPiza.map((e, i) => (
           <View key={e?.title + i} style={styles.catalogItem}>
 
             <View style={styles.pizzaImageWrapper}>
-              
+              <Image style={styles.pizzaImage} source={e?.image} />
             </View>
 
             <Text style={styles.pizzaWeight}>{e?.weight + ' гр.'}</Text>
@@ -25,6 +25,7 @@ const Catalog = () => {
 
 
       <StatusBar style="dark" />
+      </View>
     </ScrollView>
   );
 };
@@ -34,7 +35,7 @@ const styles = StyleSheet.create({
     paddingLeft: 12,
     paddingRight: 12,
     paddingTop: 20,
-    paddingBottom: 20,
+    paddingBottom: 50,
   },
 
 
@@ -62,7 +63,21 @@ const styles = StyleSheet.create({
 
   pizzaImageWrapper: {
     width: '100%',
-    height: 150
+    height: 320,
+    position: 'relative',
+  },
+
+  pizzaImage: {
+    width: '100%',
+    height: '100%',
+    resizeMode: 'cover',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    borderRadius: 7,
+  }, 
+  pb40: {
+    paddingBottom: 20
   }
 
 });
