@@ -32,12 +32,15 @@ const Catalog: React.FC<HomeScreenProps> = ({ navigation }) => {
               <Text style={styles.pizzaWeight}>{e?.weight + ' гр.'}</Text>
               <Text style={styles.pizzaTitle}>{e?.title}</Text>
 
-              <View>
+
+              <View style={styles.gridBuyPizza}>
+              
+                <Text style={styles.pizzaPrice}>{e?.price + 'грн'}</Text>
 
                 <TouchableOpacity
                   onPress={() => navigation.navigate('Single')}
                 >
-                  <Text>Go to catalog</Text>
+                  <Text>Buy</Text>
                 </TouchableOpacity>
 
               </View>
@@ -101,6 +104,18 @@ const styles = StyleSheet.create({
   },
   pb40: {
     paddingBottom: 20
+  },
+
+  gridBuyPizza: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingTop: 10,
+  },
+
+  pizzaPrice: {
+    fontWeight: '700',
+    fontSize: 20
   }
 
 });
