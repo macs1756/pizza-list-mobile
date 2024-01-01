@@ -2,11 +2,12 @@ import React from 'react';
 import { StatusBar } from 'expo-status-bar'
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { dataPiza } from '../data/catalog.piza'
+import { ScrollView } from 'react-native-gesture-handler';
 
 
 const Catalog = () => {
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
 
       {
         dataPiza.map((e, i) => (
@@ -23,8 +24,8 @@ const Catalog = () => {
       }
 
 
-      <StatusBar style="auto" />
-    </View>
+      <StatusBar style="dark" />
+    </ScrollView>
   );
 };
 
