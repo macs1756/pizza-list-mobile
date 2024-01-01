@@ -40,7 +40,7 @@ const Catalog: React.FC<HomeScreenProps> = ({ navigation }) => {
                 <TouchableOpacity
                   onPress={() => navigation.navigate('Single')}
                 >
-                  <Text>Buy</Text>
+                  <Text style={styles.buttonBuy}>Купити</Text>
                 </TouchableOpacity>
 
               </View>
@@ -78,8 +78,8 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: '#98989d',
     fontSize: 15,
-    paddingTop: 5,
-    paddingBottom: 5
+    paddingTop: 10,
+    paddingBottom: 2
   },
 
   pizzaTitle: {
@@ -110,12 +110,23 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingTop: 10,
+    paddingTop: 6,
   },
 
   pizzaPrice: {
     fontWeight: '700',
-    fontSize: 20
+    fontSize: 28
+  },
+
+  buttonBuy: {
+    borderRadius: 7,
+    paddingTop: 8,
+    paddingBottom: 8,
+    paddingLeft: 15,
+    paddingRight: 15,
+    backgroundColor: '#3aad49',
+    color: '#fff',
+    fontSize: 16
   }
 
 });
